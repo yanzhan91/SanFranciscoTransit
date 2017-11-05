@@ -50,7 +50,3 @@ def __get_response(user, preset, agency):
         'agency': agency
     }
     return requests.get('%s/get' % os.environ['transit_api_url'], params=parameters)
-
-
-if __name__ == '__main__':
-    print(get('1234', '2', 'austin-metro-bus'))
