@@ -1,0 +1,62 @@
+welcome: |
+  <speak>
+    Welcome to {{city}} Transit. This skill is built to provide you with real-time transit departures in {{city}}.
+    <break time="250ms"/>
+    We currently support {{num_agencies}} agencies in your city. <break time="250ms"/> {{agencies}}
+    <break time="250ms"/>
+    If you need more information, please check the alexa app for the {{city}}Transit skill page.
+    <break time="250ms"/>
+    To begin, you can say
+    <break time="100ms"/>
+    Check {{agency}} {{route}} at stop
+    <say-as interpret-as="digits">{{stop}}</say-as>.
+  </speak>
+
+help: |
+  <speak>
+    I have sent some sample commands in your alexa app.
+    <break time="200ms"/>
+    To begin, you can say
+    <break time="100ms"/>
+    Check {{agency}} {{route}} at stop
+    <say-as interpret-as="digits">{{stop}}</say-as>.
+    <break time="250ms"/>
+    For even more commands, check the alexa app for the {{city}}Transit skill page.
+  </speak>
+
+help_card: |
+  Here are some examples you might like to try:
+  "Check {{agency}} {{route}} at stop {{stop}}"
+  "Set {{agency}} to preset"
+  "Get {{agency}} for preset 1"
+  For a list of route IDs and stop IDs, check out {{website}}. Please leave a review for suggestions and feedbacks.
+
+check_success_message: |
+  <speak>
+    The next route {{route}} at
+    <say-as interpret-as="digits">{{stop}}</say-as>
+    {{stop_name}}
+    <break time="250ms"/>
+    is {{minutes}}.
+  </speak>
+
+no_route_message: |
+  <speak>
+    There are currently no route {{route}} at stop
+    <say-as interpret-as="digits">{{stop}}</say-as>
+    <break time="100ms"/>
+    {{stop_name}}
+  </speak>
+
+set_success_message: |
+  <speak>
+    Route {{route}} at stop
+    <say-as interpret-as="digits">{{stop}}</say-as>
+    is saved at preset {{preset}} for {{agency}}.
+  </speak>
+
+try_again_message: I didn't get that. Please say that again.
+
+internal_error_message: An internal error has occured. Please try again later.
+
+preset_not_found_message: Preset {{preset}} has not yet been saved for {{agency}}.
