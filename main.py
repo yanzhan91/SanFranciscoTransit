@@ -52,7 +52,7 @@ def check_intent(route, stop, agency):
     log.info('Request object = %s' % request)
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
-    message = CheckIntent.check(route, stop, '%s-%s' % (os.environ['city'], agency.replace(' ', '-')))
+    message = CheckIntent.check(route, stop, '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Check Status')
 
@@ -63,7 +63,7 @@ def set_intent(route, stop, preset, agency):
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
     message = SetIntent.add(context.System.user.userId, route, stop, preset,
-                            '%s-%s' % (os.environ['city'], agency.replace(' ', '-')))
+                            '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Set Status')
 
@@ -75,7 +75,7 @@ def get_intent(preset, agency):
         return delegate_dialog()
 
     message = GetIntent.get(context.System.user.userId, preset,
-                            '%s-%s' % (os.environ['city'], agency.replace(' ', '-')))
+                            '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Get Status')
 
