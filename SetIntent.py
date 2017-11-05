@@ -22,7 +22,3 @@ def __get_response(user, route, stop, preset, agency):
         'agency': agency
     }
     return requests.post('%s/add' % os.environ['transit_api_url'], data=parameters)
-
-
-if __name__ == '__main__':
-    print(add('123', 7, 1174, '1', 'austin-metro-bus'))
