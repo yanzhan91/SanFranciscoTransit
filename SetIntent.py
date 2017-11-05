@@ -25,4 +25,4 @@ def __get_response(user, route, stop, preset, agency):
 
 
 if __name__ == '__main__':
-    print add('123', 7, 1174, '1', 'austin-metro-bus')
+    print(add('123', 7, 1174, '1', 'austin-metro-bus'))
