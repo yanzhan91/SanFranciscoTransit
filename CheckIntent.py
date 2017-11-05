@@ -46,4 +46,4 @@ def __get_response(route, stop, agency):
 
 
 if __name__ == '__main__':
-    print check(7, 1174, 'austin-metro-bus')
+    print(check(7, 1174, 'austin-metro-bus'))
