@@ -43,7 +43,3 @@ def __get_response(route, stop, agency):
         'agency': agency
     }
     return requests.get('%s/check' % os.environ['transit_api_url'], params=parameters)
-
-
-if __name__ == '__main__':
-    print(check(7, 1174, 'austin-metro-bus'))
