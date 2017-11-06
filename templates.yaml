@@ -34,6 +34,7 @@ help_card: |
 check_success_message: |
   <speak>
     The next route {{route}} at
+    <break time="150ms"/>
     <say-as interpret-as="digits">{{stop}}</say-as>
     {{stop_name}}
     <break time="250ms"/>
