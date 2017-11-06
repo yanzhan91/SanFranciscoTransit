@@ -93,9 +93,9 @@ def generate_agencies():
     num_agencies = len(agencies)
 
     if num_agencies == 1:
-        return agencies[0], agencies[0], num_agencies
+        return agencies[0], num_agencies
     elif num_agencies == 2:
-        return ' and '.join(agencies), agencies[0], num_agencies
+        return ' and '.join(agencies), num_agencies
     else:
         last_agency = agencies[-1]
         del agencies[-1]
