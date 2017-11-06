@@ -2,7 +2,7 @@ welcome: |
   <speak>
     Welcome to {{city}}Transit. This skill is built to provide you with real-time transit departures in {{city}}.
     <break time="250ms"/>
-    We currently support {{num_agencies}} agencies in your city. <break time="250ms"/> {{agencies}}
+    We currently support {{num_agencies}} agencies in your city. <break time="250ms"/> {{agencies}}.
     <break time="250ms"/>
     If you need more information, please check the alexa app for the {{city}}Transit skill page.
     <break time="250ms"/>
