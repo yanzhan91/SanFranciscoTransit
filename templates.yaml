@@ -1,6 +1,6 @@
 welcome: |
   <speak>
-    Welcome to {{city}} Transit. This skill is built to provide you with real-time transit departures in {{city}}.
+    Welcome to {{city}}Transit. This skill is built to provide you with real-time transit departures in {{city}}.
     <break time="250ms"/>
     We currently support {{num_agencies}} agencies in your city. <break time="250ms"/> {{agencies}}
     <break time="250ms"/>
@@ -8,7 +8,7 @@ welcome: |
     <break time="250ms"/>
     To begin, you can say
     <break time="100ms"/>
-    Check {{agency}} {{route}} at stop
+    Check {{agency}} for {{route}} at stop
     <say-as interpret-as="digits">{{stop}}</say-as>.
   </speak>
 
@@ -18,7 +18,7 @@ help: |
     <break time="200ms"/>
     To begin, you can say
     <break time="100ms"/>
-    Check {{agency}} {{route}} at stop
+    Check {{agency}} for {{route}} at stop
     <say-as interpret-as="digits">{{stop}}</say-as>.
     <break time="250ms"/>
     For even more commands, check the alexa app for the {{city}}Transit skill page.
@@ -26,7 +26,7 @@ help: |
 
 help_card: |
   Here are some examples you might like to try:
-  "Check {{agency}} {{route}} at stop {{stop}}"
+  "Check {{agency}} for {{route}} at stop {{stop}}"
   "Set {{agency}} to preset"
   "Get {{agency}} for preset 1"
   For a list of route IDs and stop IDs, check out {{website}}. Please leave a review for suggestions and feedbacks.
