@@ -26,7 +26,7 @@ def launch():
                                    agency=example_agency, route=example_route, stop=example_stop)
     return question(welcome_text)\
         .simple_card('Welcome to %sTransit' % city, remove_html(welcome_text))\
-        .reprompt(render_template('help'))
+        .reprompt(render_template('help', city=city, agency=example_agency, route=example_route, stop=example_stop)))
 
 
 @ask.intent('AMAZON.HelpIntent')
