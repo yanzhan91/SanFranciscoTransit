@@ -10,7 +10,7 @@ def add(user, route, stop, preset, agency):
     if response.status_code != 200:
         log.error(response.text)
         return render_template('internal_error_message')
-    return render_template('set_success_message', route=route, stop=stop, preset=preset, agency=agency)
+    return render_template('set_success_message', route=route, stop=stop, preset=preset, agency=agency.replace('-', ' ')
 
 
 def __get_response(user, route, stop, preset, agency):
