@@ -63,7 +63,7 @@ def set_intent(route, stop, preset, agency):
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
     if preset == 'to':
-        preset == '2'
+        preset = '2'
     
     message = SetIntent.add(context.System.user.userId, route, stop, preset,
                             '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
@@ -77,7 +77,7 @@ def get_intent(preset, agency):
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
     if preset == 'to':
-        preset == '2'
+        preset = '2'
 
     message = GetIntent.get(context.System.user.userId, preset,
                             '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
