@@ -67,8 +67,10 @@ def set_intent(route, stop, preset, agency):
     log.info('Request object = %s' % request)
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
-    if preset == 'to':
-        preset = '2'
+
+    preset = preset.upper()
+    if preset and not re.match('[A-Z]', preset):
+        return request_slot('preset')
     
     message = SetIntent.add(context.System.user.userId, route, stop, preset,
                             '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
@@ -81,8 +83,10 @@ def get_intent(preset, agency):
     log.info('Request object = %s' % request)
     if request['dialogState'] != 'COMPLETED':
         return delegate_dialog()
-    if preset == 'to':
-        preset = '2'
+
+    preset = preset.upper()
+    if preset and not re.match('[A-Z]', preset):
+        return request_slot('preset')
 
     message = GetIntent.get(context.System.user.userId, preset,
                             '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
@@ -114,8 +118,33 @@ def generate_agencies():
 
 
 def delegate_dialog():
-    return json.dumps({'response': {'directives': [{'type': 'Dialog.Delegate'}],
-                                    'shouldEndSession': False}, 'sessionAttributes': {}})
+    return json.dumps({
+        'response': {
+            'directives': [
+                {
+                    'type': 'Dialog.Delegate'
+                }
+            ],
+            'shouldEndSession': False
+        },
+        'sessionAttributes': {}
+    })
+
+
+def request_slot(slot):
+    return json.dumps({
+        'response': {
+            'directives': [
+                {
+                    'type': 'Dialog.ElicitSlot',
+                    "slotToElicit": slot
+                }
+            ],
+            'shouldEndSession': False
+        },
+        'sessionAttributes': {}
+    })
+
 
 if __name__ == '__main__':
     app.config['ASK_VERIFY_REQUESTS'] = False
