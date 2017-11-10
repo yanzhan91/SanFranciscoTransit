@@ -69,7 +69,7 @@ def set_intent(route, stop, preset, agency):
         return delegate_dialog()
 
     if preset:
-        preset = preset.upper()
+        preset = preset[0].upper()
         if not re.match('[A-Z]', preset):
             return request_slot('preset')
     
@@ -86,7 +86,7 @@ def get_intent(preset, agency):
         return delegate_dialog()
 
     if preset:
-        preset = preset.upper()
+        preset = preset[0].upper()
         if not re.match('[A-Z]', preset):
             return request_slot('preset')
 
