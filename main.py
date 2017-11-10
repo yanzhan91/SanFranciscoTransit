@@ -47,6 +47,11 @@ def stop_intent():
     return statement('ok')
 
 
+@ask.intent('AMAZON.CancelIntent')
+def cancel_intent():
+    return stop_intent()
+
+
 @ask.intent('CheckIntent')
 def check_intent(route, stop, agency):
     log.info('Request object = %s' % request)
