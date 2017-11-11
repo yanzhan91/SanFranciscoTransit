@@ -89,6 +89,8 @@ def get_intent(preset, agency):
         preset = preset[0].upper()
         if not re.match('[A-Z]', preset):
             return request_slot('preset')
+    else:
+        preset = 'A'
 
     message = GetIntent.get(context.System.user.userId, preset,
                             '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
