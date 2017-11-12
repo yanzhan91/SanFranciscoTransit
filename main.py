@@ -161,6 +161,10 @@ def delegate_dialog():
 def request_slot(slot):
     return json.dumps({
         'response': {
+            'outputSpeech': {
+                'type': 'PlainText',
+                'text': 'Which %s?' % slot
+            },
             'directives': [
                 {
                     'type': 'Dialog.ElicitSlot',
