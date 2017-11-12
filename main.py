@@ -71,7 +71,7 @@ def check_intent(route, stop, agency):
         stop = param_map[STOP]
         agency = param_map[AGENCY]
 
-    message = CheckIntent.check(route, stop, '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
+    message = CheckIntent.check(route, stop, ('%s-%s' % (os.environ['city'].lower(), agency)).replace(' ', '-'))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Check Status')
 
@@ -94,7 +94,7 @@ def set_intent(route, stop, preset, agency):
         agency = param_map[AGENCY]
     
     message = SetIntent.add(context.System.user.userId, route, stop, preset,
-                            '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
+                            ('%s-%s' % (os.environ['city'].lower(), agency)).replace(' ', '-'))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Set Status')
 
@@ -116,7 +116,7 @@ def get_intent(preset, agency):
         agency = param_map[AGENCY]
 
     message = GetIntent.get(context.System.user.userId, preset,
-                            '%s-%s' % (os.environ['city'].lower(), agency.replace(' ', '-')))
+                            ('%s-%s' % (os.environ['city'].lower(), agency)).replace(' ', '-'))
     log.info('Response message = %s', message)
     return generate_statement_card(message, 'Get Status')
 
