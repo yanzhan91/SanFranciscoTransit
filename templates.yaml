@@ -56,7 +56,7 @@ set_success_message: |
     is saved at preset {{preset}} for {{agency}}.
   </speak>
 
-try_again_message: I didn't get that. Please say that again.
+try_again_message: I didn't get that. Please try that again.
 
 internal_error_message: An internal error has occured. Please try again later.
 
