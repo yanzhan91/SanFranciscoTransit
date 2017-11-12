@@ -6,7 +6,7 @@
         "s3_bucket": "sanfrancisco-transit",
         "environment_variables": {
             "transit_api_url": "https://0izohjr8ng.execute-api.us-east-2.amazonaws.com/dev",
-            "city": "SanFrancisco",
+            "city": "San Francisco",
             "agencies": "muni bus",
             "example_agency": "muni bus",
             "example_route": "5",
