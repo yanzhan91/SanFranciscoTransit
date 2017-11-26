@@ -179,6 +179,7 @@ def request_slot(slot):
 
 def check_params(params_map):
     for map_key in params_map.keys():
+        log.info('%s=%s' % (map_key, params_map[map_key]))
         if map_key == 'route':
             try:
                 params_map[map_key] = find_parameter_resolutions(map_key)
