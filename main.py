@@ -182,7 +182,7 @@ def check_params(params_map):
         log.info('%s=%s' % (map_key, params_map[map_key]))
         if map_key == 'route':
             try:
-                params_map[map_key] = find_parameter_resolutions(map_key)
+                params_map[map_key] = find_parameter_resolutions(map_key) or params_map[map_key]
             except KeyError:
                 return None, request_slot('route')
         elif map_key == 'stop':
@@ -207,6 +207,8 @@ def check_params(params_map):
 def find_parameter_resolutions(param):
     slots = request['intent']['slots']
     slot = slots[param]
+    if 'resolutions' not in slot:
+        return None
     for resolution in slot['resolutions']['resolutionsPerAuthority']:
         try:
             if resolution['status']['code'] == 'ER_SUCCESS_MATCH':
