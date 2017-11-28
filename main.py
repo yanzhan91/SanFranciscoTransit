@@ -192,7 +192,7 @@ def check_params(params_map):
                 return None, request_slot('stop')
         elif map_key == 'preset':
             try:
-                params_map[map_key] = find_parameter_resolutions(map_key)
+                params_map[map_key] = find_parameter_resolutions(map_key) or params_map[map_key]
             except KeyError:
                 return None, request_slot('preset')
         elif map_key == 'agency':
